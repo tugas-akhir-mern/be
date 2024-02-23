@@ -11,15 +11,15 @@ const {
  * you can remove 'LibAuthenticationMiddleware' from your middleware list.
  */
 
-const KamarMiddlewareList = LibValidationsMiddleware(
+const KategorikamarMiddlewareList = LibValidationsMiddleware(
   LibAuthenticationMiddleware
 );
 
-const KamarMiddlewareDetail = LibValidationsMiddleware(
+const KategorikamarMiddlewareDetail = LibValidationsMiddleware(
   LibAuthenticationMiddleware
 );
 
-const KamarMiddlewareCreate = LibValidationsMiddleware(
+const KategorikamarMiddlewareCreate = LibValidationsMiddleware(
   LibAuthenticationMiddleware,
   /** Your middleware here (validations, sanitizing, etc..) */
 
@@ -33,37 +33,36 @@ const KamarMiddlewareCreate = LibValidationsMiddleware(
    *  LibValidationFields.CharField({ field: "field2" }),
    *  LibValidationFields.CharField({
    *    field: "field3",
-   *    customs: [KamarValidatorField3Unique],
+   *    customs: [KategorikamarValidatorField3Unique],
    *  }),
    *  LibValidationFields.CharField({
    *    field: "field4",
-   *    sanitizers: [KamarSanitizerField4ToHash],
+   *    sanitizers: [KategorikamarSanitizerField4ToHash],
    *  }),
    *  ...
    */
 
-    LibValidationFields.ArrayField({ field: "kategorikamar" }),
-    LibValidationFields.CharField({ field: "kategorikamar.*._id" }),
-    LibValidationFields.CharField({ field: "kategorikamar.*.nama" }),
-    LibValidationFields.NumberField({ field: "kategorikamar.*.kapasitas" }),
+    LibValidationFields.CharField({ field: "nama" }),
+    LibValidationFields.NumberField({ field: "kapasitas" }),
+    LibValidationFields.NumberField({ field: "harga" }),
   LibValidationExceptionMiddleware,
 );
 
-const KamarMiddlewareUpdate = LibValidationsMiddleware(
+const KategorikamarMiddlewareUpdate = LibValidationsMiddleware(
   LibAuthenticationMiddleware,
   /** Your middleware here (validations, sanitizing, etc..) */
   LibValidationExceptionMiddleware,
 );
 
-const KamarMiddlewareDelete = LibValidationsMiddleware(
+const KategorikamarMiddlewareDelete = LibValidationsMiddleware(
   LibAuthenticationMiddleware
 );
 
 module.exports = {
-  KamarMiddlewareCreate,
-  KamarMiddlewareUpdate,
-  KamarMiddlewareDetail,
-  KamarMiddlewareList,
-  KamarMiddlewareDelete,
+  KategorikamarMiddlewareCreate,
+  KategorikamarMiddlewareUpdate,
+  KategorikamarMiddlewareDetail,
+  KategorikamarMiddlewareList,
+  KategorikamarMiddlewareDelete,
 };
   

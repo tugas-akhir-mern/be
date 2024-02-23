@@ -6,8 +6,9 @@ const KamarSchema = new mongoose.Schema(
     /** Your schema here */ 
     kategorikamar:[
       {
+        _id:{ type: String },
         nama: { type: String },
-        status:{type: String, enum:["available","not available"],default:"available"},
+        status:{type: String, enum:["available","notavailable"],default:"available"},
         kapasitas: { type:Number,default: 0 },
         harga:{ type:Number,default: 0 }
       }

@@ -26,11 +26,10 @@ const KategorikamarControllerCreate = async (req, res) => {
 
 const KategorikamarControllerDetail = async (req, res) => {
   try {
-    // Your code here
-    res.status(200).json({
-      controller: "KategorikamarControllerDetail",
-      params: req.params
-    });
+    let kamar = await Kategorikamar.findOne({ _id: req.params.id });
+    if (!kamar) throw { status: 404, message: "Not found" };
+
+    res.status(200).json(kamar);
   } catch (error) {
     return LibHTTPResponseException(res, error);
   }
@@ -39,11 +38,11 @@ const KategorikamarControllerDetail = async (req, res) => {
 const KategorikamarControllerUpdate = async (req, res) => {
   try {
     // Your code here
-    res.status(200).json({
-      controller: "KategorikamarControllerUpdate",
-      params: req.params,
-      body: req.body
-    });
+    let kategori = await Kategorikamar.findOne({ _id: req.params.id });
+    if (!barang) throw { status: 404, message: "Not found" };
+
+    await Kategorikamar.findByIdAndUpdate(req.params.id, req.cleanedData);
+    res.status(200).json(req.cleanedData);
   } catch (error) {
     return LibHTTPResponseException(res, error);
   }
@@ -51,11 +50,12 @@ const KategorikamarControllerUpdate = async (req, res) => {
 
 const KategorikamarControllerDelete = async (req, res) => {
   try {
-    // Your code here
-    res.status(204).json({
-      controller: "KategorikamarControllerDelete",
-      params: req.params
-    });
+    let barang = await Kategorikamar.findOne({ _id: req.params.id });
+    if (!barang) throw { status: 404, message: "Not found" };
+
+    await Kategorikamar.findByIdAndDelete(req.params.id);
+
+    res.status(204).json(null);
   } catch (error) {
     return LibHTTPResponseException(res, error);
   }

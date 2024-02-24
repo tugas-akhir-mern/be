@@ -11,15 +11,15 @@ const {
  * you can remove 'LibAuthenticationMiddleware' from your middleware list.
  */
 
-const KategorikamarMiddlewareList = LibValidationsMiddleware(
+const ObatMiddlewareList = LibValidationsMiddleware(
   LibAuthenticationMiddleware
 );
 
-const KategorikamarMiddlewareDetail = LibValidationsMiddleware(
+const ObatMiddlewareDetail = LibValidationsMiddleware(
   LibAuthenticationMiddleware
 );
 
-const KategorikamarMiddlewareCreate = LibValidationsMiddleware(
+const ObatMiddlewareCreate = LibValidationsMiddleware(
   LibAuthenticationMiddleware,
   /** Your middleware here (validations, sanitizing, etc..) */
 
@@ -33,40 +33,33 @@ const KategorikamarMiddlewareCreate = LibValidationsMiddleware(
    *  LibValidationFields.CharField({ field: "field2" }),
    *  LibValidationFields.CharField({
    *    field: "field3",
-   *    customs: [KategorikamarValidatorField3Unique],
+   *    customs: [ObatValidatorField3Unique],
    *  }),
    *  LibValidationFields.CharField({
    *    field: "field4",
-   *    sanitizers: [KategorikamarSanitizerField4ToHash],
+   *    sanitizers: [ObatSanitizerField4ToHash],
    *  }),
    *  ...
    */
 
-    LibValidationFields.CharField({ field: "nama" }),
-    LibValidationFields.NumberField({ field: "kapasitas" }),
-    LibValidationFields.NumberField({ field: "harga" }),
   LibValidationExceptionMiddleware,
 );
 
-const KategorikamarMiddlewareUpdate = LibValidationsMiddleware(
+const ObatMiddlewareUpdate = LibValidationsMiddleware(
   LibAuthenticationMiddleware,
   /** Your middleware here (validations, sanitizing, etc..) */
-  
-  LibValidationFields.CharField({ field: "nama" }),
-  LibValidationFields.NumberField({ field: "kapasitas" }),
-  LibValidationFields.NumberField({ field: "harga" }),
   LibValidationExceptionMiddleware,
 );
 
-const KategorikamarMiddlewareDelete = LibValidationsMiddleware(
+const ObatMiddlewareDelete = LibValidationsMiddleware(
   LibAuthenticationMiddleware
 );
 
 module.exports = {
-  KategorikamarMiddlewareCreate,
-  KategorikamarMiddlewareUpdate,
-  KategorikamarMiddlewareDetail,
-  KategorikamarMiddlewareList,
-  KategorikamarMiddlewareDelete,
+  ObatMiddlewareCreate,
+  ObatMiddlewareUpdate,
+  ObatMiddlewareDetail,
+  ObatMiddlewareList,
+  ObatMiddlewareDelete,
 };
   

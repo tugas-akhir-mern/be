@@ -42,11 +42,19 @@ const ObatMiddlewareCreate = LibValidationsMiddleware(
    *  ...
    */
 
+  LibValidationFields.NumberField({ field: "harga" }),
+  LibValidationFields.CharField({ field: "dosis" }),
+  LibValidationFields.CharField({ field: "nama" }),
+  LibValidationFields.NumberField({ field: "aturanMinum" }),
   LibValidationExceptionMiddleware,
 );
 
 const ObatMiddlewareUpdate = LibValidationsMiddleware(
   LibAuthenticationMiddleware,
+  LibValidationFields.NumberField({ field: "harga" }),
+  LibValidationFields.CharField({ field: "dosis" }),
+  LibValidationFields.CharField({ field: "nama" }),
+  LibValidationFields.NumberField({ field: "aturanMinum" }),
   /** Your middleware here (validations, sanitizing, etc..) */
   LibValidationExceptionMiddleware,
 );

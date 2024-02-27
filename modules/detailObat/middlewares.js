@@ -11,15 +11,15 @@ const {
  * you can remove 'LibAuthenticationMiddleware' from your middleware list.
  */
 
-const ObatMiddlewareList = LibValidationsMiddleware(
+const DetailObatMiddlewareList = LibValidationsMiddleware(
   LibAuthenticationMiddleware
 );
 
-const ObatMiddlewareDetail = LibValidationsMiddleware(
+const DetailObatMiddlewareDetail = LibValidationsMiddleware(
   LibAuthenticationMiddleware
 );
 
-const ObatMiddlewareCreate = LibValidationsMiddleware(
+const DetailObatMiddlewareCreate = LibValidationsMiddleware(
   LibAuthenticationMiddleware,
   /** Your middleware here (validations, sanitizing, etc..) */
 
@@ -33,42 +33,41 @@ const ObatMiddlewareCreate = LibValidationsMiddleware(
    *  LibValidationFields.CharField({ field: "field2" }),
    *  LibValidationFields.CharField({
    *    field: "field3",
-   *    customs: [ObatValidatorField3Unique],
+   *    customs: [DetailObatValidatorField3Unique],
    *  }),
    *  LibValidationFields.CharField({
    *    field: "field4",
-   *    sanitizers: [ObatSanitizerField4ToHash],
+   *    sanitizers: [DetailObatSanitizerField4ToHash],
    *  }),
    *  ...
    */
 
-  LibValidationFields.NumberField({ field: "harga" }),
-  LibValidationFields.CharField({ field: "dosis" }),
-  LibValidationFields.CharField({ field: "nama" }),
-  LibValidationFields.NumberField({ field: "aturanMinum" }),
+  LibValidationFields.ArrayField({ field: "staff" }),
+  LibValidationFields.CharField({ field: "staff.*._id" }),
+  LibValidationFields.CharField({ field: "staff.*.nama" }),
+  LibValidationFields.ArrayField({ field: "obat" }),
+  LibValidationFields.NumberField({ field: "obat.*.namaObat" }),
+  LibValidationFields.NumberField({ field: "obat.*.harga" }),
+  LibValidationFields.NumberField({ field: "obat.*.qty" }),
+  LibValidationFields.CharField({ field: " idPerawatan" }),
   LibValidationExceptionMiddleware,
 );
 
-const ObatMiddlewareUpdate = LibValidationsMiddleware(
+const DetailObatMiddlewareUpdate = LibValidationsMiddleware(
   LibAuthenticationMiddleware,
-  LibValidationFields.NumberField({ field: "harga" }),
-  LibValidationFields.CharField({ field: "dosis" }),
-  LibValidationFields.CharField({ field: "nama" }),
-  LibValidationFields.NumberField({ field: "aturanMinum" }),
-  
   /** Your middleware here (validations, sanitizing, etc..) */
   LibValidationExceptionMiddleware,
 );
 
-const ObatMiddlewareDelete = LibValidationsMiddleware(
+const DetailObatMiddlewareDelete = LibValidationsMiddleware(
   LibAuthenticationMiddleware
 );
 
 module.exports = {
-  ObatMiddlewareCreate,
-  ObatMiddlewareUpdate,
-  ObatMiddlewareDetail,
-  ObatMiddlewareList,
-  ObatMiddlewareDelete,
+  DetailObatMiddlewareCreate,
+  DetailObatMiddlewareUpdate,
+  DetailObatMiddlewareDetail,
+  DetailObatMiddlewareList,
+  DetailObatMiddlewareDelete,
 };
   

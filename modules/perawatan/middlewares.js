@@ -11,15 +11,15 @@ const {
  * you can remove 'LibAuthenticationMiddleware' from your middleware list.
  */
 
-const ObatMiddlewareList = LibValidationsMiddleware(
+const PerawatanMiddlewareList = LibValidationsMiddleware(
   LibAuthenticationMiddleware
 );
 
-const ObatMiddlewareDetail = LibValidationsMiddleware(
+const PerawatanMiddlewareDetail = LibValidationsMiddleware(
   LibAuthenticationMiddleware
 );
 
-const ObatMiddlewareCreate = LibValidationsMiddleware(
+const PerawatanMiddlewareCreate = LibValidationsMiddleware(
   LibAuthenticationMiddleware,
   /** Your middleware here (validations, sanitizing, etc..) */
 
@@ -33,42 +33,33 @@ const ObatMiddlewareCreate = LibValidationsMiddleware(
    *  LibValidationFields.CharField({ field: "field2" }),
    *  LibValidationFields.CharField({
    *    field: "field3",
-   *    customs: [ObatValidatorField3Unique],
+   *    customs: [PerawatanValidatorField3Unique],
    *  }),
    *  LibValidationFields.CharField({
    *    field: "field4",
-   *    sanitizers: [ObatSanitizerField4ToHash],
+   *    sanitizers: [PerawatanSanitizerField4ToHash],
    *  }),
    *  ...
    */
 
-  LibValidationFields.NumberField({ field: "harga" }),
-  LibValidationFields.CharField({ field: "dosis" }),
-  LibValidationFields.CharField({ field: "nama" }),
-  LibValidationFields.NumberField({ field: "aturanMinum" }),
   LibValidationExceptionMiddleware,
 );
 
-const ObatMiddlewareUpdate = LibValidationsMiddleware(
+const PerawatanMiddlewareUpdate = LibValidationsMiddleware(
   LibAuthenticationMiddleware,
-  LibValidationFields.NumberField({ field: "harga" }),
-  LibValidationFields.CharField({ field: "dosis" }),
-  LibValidationFields.CharField({ field: "nama" }),
-  LibValidationFields.NumberField({ field: "aturanMinum" }),
-  
   /** Your middleware here (validations, sanitizing, etc..) */
   LibValidationExceptionMiddleware,
 );
 
-const ObatMiddlewareDelete = LibValidationsMiddleware(
+const PerawatanMiddlewareDelete = LibValidationsMiddleware(
   LibAuthenticationMiddleware
 );
 
 module.exports = {
-  ObatMiddlewareCreate,
-  ObatMiddlewareUpdate,
-  ObatMiddlewareDetail,
-  ObatMiddlewareList,
-  ObatMiddlewareDelete,
+  PerawatanMiddlewareCreate,
+  PerawatanMiddlewareUpdate,
+  PerawatanMiddlewareDetail,
+  PerawatanMiddlewareList,
+  PerawatanMiddlewareDelete,
 };
   

@@ -10,6 +10,7 @@ const ObatSchema = new mongoose.Schema(
     aturanMinum: { type:Number,default: 0 },
     harga:{ type:Number,default: 0 },
     created: { type: Date, default: Date.now },
+    qty:{type:Number, default:0},
   },
   { versionKey: false }
 );
